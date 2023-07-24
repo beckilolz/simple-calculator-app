@@ -7,6 +7,7 @@ function buttonClicked() {
     document.getElementById('happy-frog').style.display = 'none';
     document.getElementById('sad-cat').style.display = 'none';
     document.getElementById("operation").innerHTML = "";
+    document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "**", "sqrt", "log"];
     const num1 = parseFloat(prompt("What is your first number?").replaceAll(" ", ""));
     const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
