@@ -66,7 +66,7 @@ fetch("locale_chn.txt")
             const where_equals = indexes(words, "=");
             const setting_name = words.substring(0, where_equals[0]);
             const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '');
-            locale_eng[setting_name] = setting_value;
+            locale_chn[setting_name] = setting_value;
        }
    })
   .catch((e) => console.error(e));
@@ -78,7 +78,7 @@ function buttonClicked() {
     document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "sq", "sqrt", "log"];
     let message;
-
+    
     if (locale == "eng") {
         message = locale_eng["number_1_text"];
     }
