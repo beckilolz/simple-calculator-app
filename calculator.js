@@ -58,7 +58,12 @@ function buttonClicked() {
     if (operand == "sqrt" || operand == "log") {
         let dp = 10;
         var decimals = result - Math.floor(result);
-        var decimalPlaces = decimals.toString().split('.')[1].length;
+        try {
+            var decimalPlaces = decimals.toString().split('.')[1].length;
+        } catch (error) {
+            dp = 0;
+        }
+        
         if (decimalPlaces > 10) {
             decimalPlaces = 10;
         }
