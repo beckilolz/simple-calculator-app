@@ -19,7 +19,7 @@ function buttonClicked() {
         throw new Error("This operand (" + operand + ") is not valid!");
     }
 
-    if (num1beforeinput.length != num1.length) {
+    if (num1beforeinput.length != num1.toString().length) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById("operation").innerHTML = num1;
         document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
@@ -31,7 +31,7 @@ function buttonClicked() {
         const num2beforeinput = prompt("What is your second number?").replaceAll(" ", "");
         num2 = parseFloat(num2beforeinput);
         
-        if (num2beforeinput.length != num2.length) {
+        if (num2beforeinput.length != num2.toString().length) {
             document.getElementById('sad-cat').style.display = 'inline';
             document.getElementById("operation").innerHTML = num2;
             document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
