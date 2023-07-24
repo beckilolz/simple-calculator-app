@@ -6,6 +6,10 @@
     </head>
 </html>
 <body onload="script();">
+    <select id="language" onchange="onChange(this)">
+        <option value="eng">English</option>
+        <option value="chn">Chinese</option>
+    </select>
     <button onclick="buttonClicked()">Start calculator</button>
     <p class="operation" id="operation"></p>
     <p class="error" id="message"></p>
