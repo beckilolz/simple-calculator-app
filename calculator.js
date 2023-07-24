@@ -8,11 +8,11 @@ function buttonClicked() {
     document.getElementById('sad-cat').style.display = 'none';
     document.getElementById("operation").innerHTML = "";
     document.getElementById("message").innerHTML = "";
-    const operations = ["+", "-", "*", "/", "**", "sqrt", "log"];
+    const operations = ["+", "-", "*", "/", "sq", "sqrt", "log"];
     // Everything after number is ignored
     const num1beforeinput = prompt("What is your first number?").replaceAll(" ", "");
     const num1 = parseFloat(num1beforeinput);
-    const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
+    const operand = prompt("What is your operand? (+, -, *, /, sq, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById('message').innerHTML = "This operand (" + operand + ") is not valid!";
@@ -27,7 +27,7 @@ function buttonClicked() {
     }
 
     let num2 = 10;
-    if (!(operand == "sqrt" || operand == "log" || operand == "**")){
+    if (!(operand == "sqrt" || operand == "log" || operand == "sq")){
         const num2beforeinput = prompt("What is your second number?").replaceAll(" ", "");
         num2 = parseFloat(num2beforeinput);
         
@@ -66,7 +66,7 @@ function buttonClicked() {
         case "/":
             result = num1 / num2;
             break;
-        case "**":
+        case "sq":
             result = num1 ** 2;
             break;
         case "sqrt":
