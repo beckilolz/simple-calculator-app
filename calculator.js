@@ -131,7 +131,7 @@ function buttonClicked() {
     if (!(operand == "sqrt" || operand == "log" || operand == "sq")){
 
         if (locale == "eng") {
-            message = locale_eng["What is your second number?"];
+            message = locale_eng["second_number_text"];
         }
 
         const num2beforeinput = prompt(message).replaceAll(" ", "");
@@ -140,7 +140,7 @@ function buttonClicked() {
             document.getElementById("operation").innerHTML = num2beforeinput;
 
             if (locale == "eng") {
-                message = locale_eng["second_number_text"];
+                message = locale_eng["num2_too_long_text"];
             }
 
             document.getElementById('message').innerHTML = message;
@@ -157,7 +157,7 @@ function buttonClicked() {
                 message = locale_eng["not_a_number_text"];
             }
 
-            document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
+            document.getElementById('message').innerHTML = message;
             throw new Error("One or more of your numbers was not a number!");
         }
     }
@@ -165,13 +165,23 @@ function buttonClicked() {
     if (isNaN(num1) || isNaN(num2)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById("operation").innerHTML = num1 + " and " + num2;
-        document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
+
+        if (locale == "eng") {
+            message = locale_eng["not_a_number_text"];
+        }
+
+        document.getElementById('message').innerHTML = message;
         throw new Error("One or more of your numbers was not a number!");
     }
 
     if (num2 == 0 && operand == "/") {
         document.getElementById('sad-cat').style.display = 'inline';
-        document.getElementById('message').innerHTML = "This is impossible, you cannot divide by zero";
+
+        if (locale == "eng") {
+            message = locale_eng["divide_by_zero_text"];
+        }
+
+        document.getElementById('message').innerHTML = message;
         throw new Error("This is impossible, you cannot divide by zero");
     }
 
@@ -227,7 +237,12 @@ function buttonClicked() {
 
     if (result == null || isNaN(result)) {
         document.getElementById('sad-cat').style.display = 'inline';
-        document.getElementById('message').innerHTML = "Result is null or NaN";
+
+        if (locale == "eng") {
+            message = locale_eng["null_or_nan_text"];
+        }
+
+        document.getElementById('message').innerHTML = message;
         throw new Error("Result is null or NaN");
     }
     else {
