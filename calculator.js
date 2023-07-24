@@ -15,8 +15,8 @@ function buttonClicked() {
         throw new Error("This operand (" + operand + ") is not valid!");
     }
     let num2 = 10;
-    if (!(operand == "sqrt" ||operand == "log")){
-        num2 = parseFloat(prompt("What is your second number?").replace(" ", ""));
+    if (!(operand == "sqrt" || operand == "log")){
+        num2 = parseFloat(prompt("What is your second number?").replaceAll(" ", ""));
     }
     if (isNaN(num1) || isNaN(num2)) {
         document.getElementById('sad-cat').style.display = 'inline';
