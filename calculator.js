@@ -21,7 +21,7 @@ function buttonClicked() {
 
     if (num1beforeinput.length != num1.length) {
         document.getElementById('sad-cat').style.display = 'inline';
-        document.getElementById("operation").innerHTML = num1 + " and " + num2;
+        document.getElementById("operation").innerHTML = num1;
         document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
         throw new Error("One or more of your numbers was not a number!");
     }
@@ -33,7 +33,7 @@ function buttonClicked() {
         
         if (num2beforeinput.length != num2.length) {
             document.getElementById('sad-cat').style.display = 'inline';
-            document.getElementById("operation").innerHTML = num1 + " and " + num2;
+            document.getElementById("operation").innerHTML = num2;
             document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
             throw new Error("One or more of your numbers was not a number!");
         }
