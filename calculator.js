@@ -3,7 +3,6 @@ Number.prototype.countDecimals = function () {
     return this.toString().split(".")[1].length || 0; 
 }
 
-
 function buttonClicked() {
     const operations = ["+", "-", "*", "/", "**", "sqrt", "log"];
     const num1 = parseFloat(prompt("What is your first number?").replaceAll(" ", ""));
