@@ -12,20 +12,21 @@ function buttonClicked() {
     // Everything after number is ignored
     const num1beforeinput = prompt("What is your first number?").replaceAll(" ", "");
     const num1 = parseFloat(num1beforeinput);
+
+    if (num1beforeinput.length != num1.toString().length) {
+        document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById("operation").innerHTML = num1beforeinput;
+        document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
+        throw new Error("One or more of your numbers was not a number!");
+    }
+
     const operand = prompt("What is your operand? (+, -, *, /, sq, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById('message').innerHTML = "This operand (" + operand + ") is not valid!";
         throw new Error("This operand (" + operand + ") is not valid!");
     }
-
-    if (num1beforeinput.length != num1.toString().length) {
-        document.getElementById('sad-cat').style.display = 'inline';
-        document.getElementById("operation").innerHTML = num1;
-        document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
-        throw new Error("One or more of your numbers was not a number!");
-    }
-
+    
     let num2 = 10;
     if (!(operand == "sqrt" || operand == "log" || operand == "sq")){
         const num2beforeinput = prompt("What is your second number?").replaceAll(" ", "");
@@ -33,7 +34,7 @@ function buttonClicked() {
         
         if (num2beforeinput.length != num2.toString().length) {
             document.getElementById('sad-cat').style.display = 'inline';
-            document.getElementById("operation").innerHTML = num2;
+            document.getElementById("operation").innerHTML = num2beforeinput;
             document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
             throw new Error("One or more of your numbers was not a number!");
         }
