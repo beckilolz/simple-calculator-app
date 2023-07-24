@@ -24,6 +24,8 @@ Number.prototype.countDecimals = function () {
     return this.toString().split(".")[1].length || 0; 
 }
 
+let locale_eng = {}
+
 fetch("locale_eng.txt")
   .then((res) => res.text())
   .then((text) => {
@@ -40,7 +42,7 @@ fetch("locale_eng.txt")
             const where_equals = indexes(words, "=");
             const setting_name = words.substring(0, where_equals[0]);
             const setting_value = words.substring(where_equals[0]+1, words.length);
-            console.log(setting_name + " is " + setting_value);
+            locale_eng[setting_name] = setting_value;
        }
    })
   .catch((e) => console.error(e));
