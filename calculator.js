@@ -1,14 +1,49 @@
+function indexes(source, find) {
+    if (!source) {
+      return [];
+    }
+    // if find is empty string return all indexes.
+    if (!find) {
+      // or shorter arrow function:
+      // return source.split('').map((_,i) => i);
+      return source.split('').map(function(_, i) { return i; });
+    }
+    var result = [];
+    for (i = 0; i < source.length; ++i) {
+      // If you want to search case insensitive use 
+      // if (source.substring(i, i + find.length).toLowerCase() == find) {
+      if (source.substring(i, i + find.length) == find) {
+        result.push(i);
+      }
+    }
+    return result;
+}
+
 Number.prototype.countDecimals = function () {
     if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
     return this.toString().split(".")[1].length || 0; 
 }
 
-/*fetch("myText.txt")
+fetch("locale_eng.txt")
   .then((res) => res.text())
   .then((text) => {
-    // do something with "text"
+        const obj = indexes(text, "\n");
+        for (let occ in obj) {
+            const number = obj[occ];
+            let words;
+            if (occ == 0) {
+                words = text.substring(0, number);
+            } else {
+                words = text.substring(obj[occ-1], number); 
+            }
+
+            const where_equals = indexes(words, "=");
+            const setting_name = words.substring(0, where_equals[0]);
+            const setting_value = words.substring(where_equals[0]+1, words.length);
+            console.log(setting_name + " is " + setting_value);
+       }
    })
-  .catch((e) => console.error(e));*/
+  .catch((e) => console.error(e));
 
 function buttonClicked() {
     document.getElementById('happy-frog').style.display = 'none';
