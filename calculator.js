@@ -13,6 +13,7 @@ function buttonClicked() {
     const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) {
         document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById('message').innerHTML = "This operand (" + operand + ") is not valid!";
         throw new Error("This operand (" + operand + ") is not valid!");
     }
 
@@ -23,12 +24,14 @@ function buttonClicked() {
 
     if (isNaN(num1) || isNaN(num2)) {
         document.getElementById('sad-cat').style.display = 'inline';
-        document.getElementById("operation").innerHTML = ""
+        document.getElementById("operation").innerHTML = num1 + " and " + num2;
+        document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
         throw new Error("One or more of your numbers was not a number!");
     }
 
     if (num2 == 0 && operand == "/") {
         document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById('message').innerHTML = "This is impossible, you cannot divide by zero";
         throw new Error("This is impossible, you cannot divide by zero");
     }
 
