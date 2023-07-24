@@ -51,10 +51,7 @@ function buttonClicked() {
             result = Math.log10(num1);
             break;
     }
-    if (result == null || isNaN(result)) {
-        document.getElementById('sad-cat').style.display = 'inline';
-        throw new Error("I don't know what happened")
-    }
+    
     if (operand == "sqrt" || operand == "log") {
         let dp = 10;
         var decimals = result - Math.floor(result);
@@ -76,7 +73,15 @@ function buttonClicked() {
     else {
         document.getElementById("operation").innerHTML = num1 + " " + operand + " " + num2 + " = " + result;
     }
-    document.getElementById('happy-frog').style.display = 'inline';
+
+    if (result == null || isNaN(result)) {
+        document.getElementById('sad-cat').style.display = 'inline';
+        throw new Error("I don't know what happened")
+    }
+    else {
+        document.getElementById('happy-frog').style.display = 'inline';
+    }
+    
 }
 
 function script() {
