@@ -8,7 +8,7 @@ function buttonClicked() {
     const num1 = parseFloat(prompt("What is your first number?").replaceAll(" ", ""));
     const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) throw new Error("This operand (" + operand + ") is not valid!");
-    let num2;
+    let num2 = 0;
     if (!(operand == "sqrt" ||operand == "log")){
         num2 = parseFloat(prompt("What is your second number?").replace(" ", ""));
     }
@@ -36,7 +36,7 @@ function buttonClicked() {
             result = Math.sqrt(num1);
             break;
         case "log":
-            result = Math.log10(number1);
+            result = Math.log10(num1);
             break;
     }
     if (result == null) throw new Error("I don't know what happened")
@@ -52,5 +52,3 @@ function buttonClicked() {
     
     alert("Your answer is: " + result);
 }
-
-buttonClicked();
