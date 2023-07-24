@@ -87,6 +87,7 @@ function buttonClicked() {
 
     if (result == null || isNaN(result)) {
         document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById('message').innerHTML = "I don't know what happened";
         throw new Error("I don't know what happened")
     }
     else {
