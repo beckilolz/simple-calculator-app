@@ -51,7 +51,7 @@ function buttonClicked() {
             result = Math.log10(num1);
             break;
     }
-    if (result == null) {
+    if (result == null || isNaN(result)) {
         document.getElementById('sad-cat').style.display = 'inline';
         throw new Error("I don't know what happened")
     }
