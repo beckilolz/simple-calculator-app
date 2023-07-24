@@ -15,14 +15,18 @@ function buttonClicked() {
         document.getElementById('sad-cat').style.display = 'inline';
         throw new Error("This operand (" + operand + ") is not valid!");
     }
+
     let num2 = 10;
-    if (!(operand == "sqrt" || operand == "log")){
+    if (!(operand == "sqrt" || operand == "log" || operand == "**")){
         num2 = parseFloat(prompt("What is your second number?").replaceAll(" ", ""));
     }
+
     if (isNaN(num1) || isNaN(num2)) {
         document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById("operation").innerHTML = ""
         throw new Error("One or more of your numbers was not a number!");
     }
+
     if (num2 == 0 && operand == "/") {
         document.getElementById('sad-cat').style.display = 'inline';
         throw new Error("This is impossible, you cannot divide by zero");
@@ -43,7 +47,7 @@ function buttonClicked() {
             result = num1 / num2;
             break;
         case "**":
-            result = num1 ** num2;
+            result = num1 ** 2;
             break;
         case "sqrt":
             result = Math.sqrt(num1);
@@ -70,6 +74,9 @@ function buttonClicked() {
 
     if (operand == "sqrt") {
         document.getElementById("operation").innerHTML = operand + " " + num1 + " = " + result;
+    }
+    else if (operand == "**") {
+        document.getElementById("operation").innerHTML = num1 + " ** 2 = " + result;
     }
     else {
         document.getElementById("operation").innerHTML = num1 + " " + operand + " " + num2 + " = " + result;
