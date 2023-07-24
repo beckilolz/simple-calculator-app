@@ -9,7 +9,9 @@ function buttonClicked() {
     document.getElementById("operation").innerHTML = "";
     document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "**", "sqrt", "log"];
-    const num1 = parseFloat(prompt("What is your first number?").replaceAll(" ", ""));
+    // Everything after number is ignored
+    const num1beforeinput = prompt("What is your first number?").replaceAll(" ", "");
+    const num1 = parseFloat(num1beforeinput);
     const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) {
         document.getElementById('sad-cat').style.display = 'inline';
@@ -17,9 +19,24 @@ function buttonClicked() {
         throw new Error("This operand (" + operand + ") is not valid!");
     }
 
+    if (num1beforeinput.length != num1.length) {
+        document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById("operation").innerHTML = num1 + " and " + num2;
+        document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
+        throw new Error("One or more of your numbers was not a number!");
+    }
+
     let num2 = 10;
     if (!(operand == "sqrt" || operand == "log" || operand == "**")){
-        num2 = parseFloat(prompt("What is your second number?").replaceAll(" ", ""));
+        const num2beforeinput = prompt("What is your second number?").replaceAll(" ", "");
+        num2 = parseFloat(num2beforeinput);
+        
+        if (num2beforeinput.length != num2.length) {
+            document.getElementById('sad-cat').style.display = 'inline';
+            document.getElementById("operation").innerHTML = num1 + " and " + num2;
+            document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
+            throw new Error("One or more of your numbers was not a number!");
+        }
     }
 
     if (isNaN(num1) || isNaN(num2)) {
