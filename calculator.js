@@ -36,7 +36,7 @@ function buttonClicked() {
             result = Math.sqrt(num1);
             break;
         case "log":
-            result = Math.log10(number1);
+            result = Math.log10(num1);
             break;
     }
     if (result == null) throw new Error("I don't know what happened")
