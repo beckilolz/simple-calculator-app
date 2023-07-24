@@ -66,7 +66,7 @@ fetch("locale_chn.txt")
             const where_equals = indexes(words, "=");
             const setting_name = words.substring(0, where_equals[0]);
             const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '');
-            locale_eng[setting_name] = setting_value;
+            locale_chn[setting_name] = setting_value;
        }
    })
   .catch((e) => console.error(e));
@@ -78,7 +78,7 @@ function buttonClicked() {
     document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "sq", "sqrt", "log"];
     let message;
-
+    
     if (locale == "eng") {
         message = locale_eng["number_1_text"];
     }
@@ -94,6 +94,9 @@ function buttonClicked() {
         if (locale == "eng") {
             message = locale_eng["num1_too_long_text"];
         }
+        else {
+            message = locale_chn["num1_too_long_text"];
+        }
 
         document.getElementById('message').innerHTML = message;
         throw new Error("Number 1 was too long (more than 20 chars)");
@@ -107,6 +110,9 @@ function buttonClicked() {
         if (locale == "eng") {
             message = locale_eng["not_a_number_text"];
         }
+        else {
+            message = locale_chn["not_a_number_text"];
+        }
 
         document.getElementById('message').innerHTML = message;
         throw new Error("One or more of your numbers was not a number!");
@@ -115,12 +121,18 @@ function buttonClicked() {
     if (locale == "eng") {
         message = locale_eng["operand_text"];
     }
+    else {
+        message = locale_chn["operand_text"];
+    }
     const operand = prompt(message).replaceAll(" ", "")
     if (!operations.includes(operand)) {
         document.getElementById('sad-cat').style.display = 'inline';
 
         if (locale == "eng") {
             message = locale_eng["invalid_operand_text"];
+        }
+        else {
+            message = locale_chn["invalid_operand_text"];
         }
 
         document.getElementById('message').innerHTML = message;
@@ -133,6 +145,9 @@ function buttonClicked() {
         if (locale == "eng") {
             message = locale_eng["second_number_text"];
         }
+        else {
+            message = locale_chn["second_number_text"];
+        }
 
         const num2beforeinput = prompt(message).replaceAll(" ", "");
         if (num2beforeinput.length > 21) {
@@ -141,6 +156,9 @@ function buttonClicked() {
 
             if (locale == "eng") {
                 message = locale_eng["num2_too_long_text"];
+            }
+            else {
+                message = locale_chn["num2_too_long_text"];
             }
 
             document.getElementById('message').innerHTML = message;
@@ -155,6 +173,9 @@ function buttonClicked() {
 
             if (locale == "eng") {
                 message = locale_eng["not_a_number_text"];
+            }
+            else {
+                message = locale_chn["not_a_number_text"];
             }
 
             document.getElementById('message').innerHTML = message;
