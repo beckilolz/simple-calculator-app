@@ -30,8 +30,11 @@ function buttonClicked() {
             result = num1 ** num2;
             break;
         case "sqrt":
-            result = Math.sqrt(number1)
-            
+            result = Math.sqrt(num1);
+            break;
+        case "log":
+            result = Math.log10(number1);
+            break;
     }
     if (result == null) throw new Error("I don't know what happened")
     if (operand == "sqrt" || operand == "log") {
@@ -45,12 +48,6 @@ function buttonClicked() {
     }
     
     alert("Your answer is: " + result);
-}
-else if (operator == 'sqrt') {
-    result = Math.sqrt(number1)
-}
-else if (operator == 'log') {
-    result = Math.log10(number1)
 }
 
 buttonClicked();
