@@ -24,8 +24,8 @@ function buttonClicked() {
         throw new Error("Number 1 was too long (more than 20 chars)");
     }
     const num1 = parseFloat(num1beforeinput);
-
-    if (num1beforeinput.match(/[^$,.\d]/)) {
+    let r = new RegExp(/^-?[0-9]\d*(\.\d+)?$/);
+    if (!r.test(num1beforeinput)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById("operation").innerHTML = num1beforeinput;
         document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
@@ -51,7 +51,7 @@ function buttonClicked() {
 
         num2 = parseFloat(num2beforeinput);
         
-        if (num2beforeinput.match(/[^$,.\d]/)) {
+        if (!r.test(num2beforeinput)) {
             document.getElementById('sad-cat').style.display = 'inline';
             document.getElementById("operation").innerHTML = num2beforeinput;
             document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
