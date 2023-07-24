@@ -3,15 +3,29 @@ Number.prototype.countDecimals = function () {
     return this.toString().split(".")[1].length || 0; 
 }
 
+/*fetch("myText.txt")
+  .then((res) => res.text())
+  .then((text) => {
+    // do something with "text"
+   })
+  .catch((e) => console.error(e));*/
+
 function buttonClicked() {
     document.getElementById('happy-frog').style.display = 'none';
     document.getElementById('sad-cat').style.display = 'none';
     document.getElementById("operation").innerHTML = "";
     document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "sq", "sqrt", "log"];
-    // Everything after number is ignored
     const num1beforeinput = prompt("What is your first number?").replaceAll(" ", "");
+    if (num1beforeinput.length > 21) {
+        document.getElementById('sad-cat').style.display = 'inline';
+        document.getElementById("operation").innerHTML = num1beforeinput;
+        document.getElementById('message').innerHTML = "Number 1 was too long (more than 20 chars)";
+        throw new Error("Number 1 was too long (more than 20 chars)");
+    }
     const num1 = parseFloat(num1beforeinput);
+
+    // when starts with 0
 
     if (num1beforeinput.length != num1.toString().length) {
         document.getElementById('sad-cat').style.display = 'inline';
@@ -30,6 +44,13 @@ function buttonClicked() {
     let num2 = 10;
     if (!(operand == "sqrt" || operand == "log" || operand == "sq")){
         const num2beforeinput = prompt("What is your second number?").replaceAll(" ", "");
+        if (num2beforeinput.length > 21) {
+            document.getElementById('sad-cat').style.display = 'inline';
+            document.getElementById("operation").innerHTML = num2beforeinput;
+            document.getElementById('message').innerHTML = "Number 2 was too long (more than 20 chars)";
+            throw new Error("Number 1 was too long (more than 20 chars)");
+        }
+
         num2 = parseFloat(num2beforeinput);
         
         if (num2beforeinput.length != num2.toString().length) {
