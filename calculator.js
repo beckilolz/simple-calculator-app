@@ -6,7 +6,7 @@ Number.prototype.countDecimals = function () {
 function buttonClicked() {
     const operations = ["+", "-", "*", "/", "**", "sqrt", "log"];
     const num1 = parseFloat(prompt("What is your first number?").replaceAll(" ", ""));
-    const operand = prompt("What is your operand? (+, -, *, /, **)").replaceAll(" ", "")
+    const operand = prompt("What is your operand? (+, -, *, /, **, sqrt, log)").replaceAll(" ", "")
     if (!operations.includes(operand)) throw new Error("This operand (" + operand + ") is not valid!");
     let num2;
     if (!(operand == "sqrt" ||operand == "log")){
