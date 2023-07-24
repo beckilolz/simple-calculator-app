@@ -25,9 +25,7 @@ function buttonClicked() {
     }
     const num1 = parseFloat(num1beforeinput);
 
-    // when starts with 0
-
-    if (num1beforeinput.length != num1.toString().length) {
+    if (num1beforeinput.match(/[^$,.\d]/)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById("operation").innerHTML = num1beforeinput;
         document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
@@ -48,12 +46,12 @@ function buttonClicked() {
             document.getElementById('sad-cat').style.display = 'inline';
             document.getElementById("operation").innerHTML = num2beforeinput;
             document.getElementById('message').innerHTML = "Number 2 was too long (more than 20 chars)";
-            throw new Error("Number 1 was too long (more than 20 chars)");
+            throw new Error("Number 2 was too long (more than 20 chars)");
         }
 
         num2 = parseFloat(num2beforeinput);
         
-        if (num2beforeinput.length != num2.toString().length) {
+        if (num2beforeinput.match(/[^$,.\d]/)) {
             document.getElementById('sad-cat').style.display = 'inline';
             document.getElementById("operation").innerHTML = num2beforeinput;
             document.getElementById('message').innerHTML = "One or more of your numbers was not a number!";
