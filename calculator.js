@@ -81,6 +81,9 @@ function buttonClicked() {
     if (locale == "eng") {
         message = locale_eng["number_1_text"];
     }
+    else {
+        message = locale_chn["number_1_text"];
+    }
 
     const num1beforeinput = prompt(message).replaceAll(" ", "");
     if (num1beforeinput.length > 21) {
