@@ -1,7 +1,7 @@
 number_1_text="What is your first number?"
 num1_too_long_text="Number 1 was too long (more than 20 chars)"
 not_a_number_text="One or more of your numbers was not a number!"
-invalid_operand_text="This operand (" + operand + ") is not valid!"
+invalid_operand_text="This operand (operand) is not valid!"
 second_number_text=""What is your second number?"
 num2_too_long_text="Number 2 was too long (more than 20 chars)"
 divide_by_zero_text="This is impossible, you cannot divide by zero"
