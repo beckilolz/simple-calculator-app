@@ -2,10 +2,3 @@ img {
     width:500px;
     height:500px;
 }
-
-.div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
