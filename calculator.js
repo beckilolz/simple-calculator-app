@@ -24,6 +24,7 @@ Number.prototype.countDecimals = function () {
     return this.toString().split(".")[1].length || 0; 
 }
 
+let locale = "eng";
 let locale_eng = {}
 
 fetch("locale_eng.txt")
@@ -41,7 +42,7 @@ fetch("locale_eng.txt")
 
             const where_equals = indexes(words, "=");
             const setting_name = words.substring(0, where_equals[0]);
-            const setting_value = words.substring(where_equals[0]+1, words.length);
+            const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '');
             locale_eng[setting_name] = setting_value;
        }
    })
@@ -53,7 +54,12 @@ function buttonClicked() {
     document.getElementById("operation").innerHTML = "";
     document.getElementById("message").innerHTML = "";
     const operations = ["+", "-", "*", "/", "sq", "sqrt", "log"];
-    const num1beforeinput = prompt("What is your first number?").replaceAll(" ", "");
+    let message;
+    if (locale == "eng") {
+        message = locale_eng["number_1_text"];
+    }
+
+    const num1beforeinput = prompt(message).replaceAll(" ", "");
     if (num1beforeinput.length > 21) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById("operation").innerHTML = num1beforeinput;
