@@ -116,7 +116,7 @@ function buttonClicked() {
         document.getElementById("operation").innerHTML = operand + " " + num1 + " = " + result;
     }
     else if (operand == "sq") {
-        document.getElementById("operation").innerHTML = num1 + " ** 2 = " + result;
+        document.getElementById("operation").innerHTML = num1 + " squared = " + result;
     }
     else {
         document.getElementById("operation").innerHTML = num1 + " " + operand + " " + num2 + " = " + result;
