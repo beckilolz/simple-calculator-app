@@ -96,7 +96,7 @@ function buttonClicked() {
     if (operand == "sqrt") {
         document.getElementById("operation").innerHTML = operand + " " + num1 + " = " + result;
     }
-    else if (operand == "**") {
+    else if (operand == "sq") {
         document.getElementById("operation").innerHTML = num1 + " ** 2 = " + result;
     }
     else {
