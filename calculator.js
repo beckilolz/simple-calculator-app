@@ -162,7 +162,7 @@ function buttonClicked() {
     if (result == null || isNaN(result)) {
         document.getElementById('sad-cat').style.display = 'inline';
         document.getElementById('message').innerHTML = "Result is null or NaN";
-        throw new Error("I don't know what happened");
+        throw new Error("Result is null or NaN");
     }
     else {
         document.getElementById('happy-frog').style.display = 'inline';
