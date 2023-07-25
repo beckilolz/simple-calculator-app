@@ -190,6 +190,9 @@ function buttonClicked() {
         if (locale == "eng") {
             message = locale_eng["not_a_number_text"];
         }
+        else {
+            message = locale_chn["not_a_number_text"];
+        }
 
         document.getElementById('message').innerHTML = message;
         throw new Error("One or more of your numbers was not a number!");
@@ -200,6 +203,9 @@ function buttonClicked() {
 
         if (locale == "eng") {
             message = locale_eng["divide_by_zero_text"];
+        }
+        else {
+            message = locale_chn["divide_by_zero_text"];
         }
 
         document.getElementById('message').innerHTML = message;
@@ -261,6 +267,9 @@ function buttonClicked() {
 
         if (locale == "eng") {
             message = locale_eng["null_or_nan_text"];
+        }
+        else {
+            message = locale_chn["null_or_nan_text"];
         }
 
         document.getElementById('message').innerHTML = message;
