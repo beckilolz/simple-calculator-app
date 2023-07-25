@@ -41,8 +41,8 @@ fetch("locale_eng.txt")
             }
 
             const where_equals = indexes(words, "=");
-            const setting_name = words.substring(0, where_equals[0]);
-            const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '');
+            const setting_name = words.substring(0, where_equals[0]).replaceAll('\n', '');
+            const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '').replaceAll('\n', '');
             locale_eng[setting_name] = setting_value;
        }
    })
@@ -64,8 +64,8 @@ fetch("locale_chn.txt")
             }
 
             const where_equals = indexes(words, "=");
-            const setting_name = words.substring(0, where_equals[0]);
-            const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '');
+            const setting_name = words.substring(0, where_equals[0]).replaceAll('\n', '');
+            const setting_value = words.substring(where_equals[0]+1, words.length).replaceAll('"', '').replaceAll('\n', '');
             locale_chn[setting_name] = setting_value;
        }
    })
